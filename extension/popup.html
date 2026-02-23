@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>iliterate</title>
+  </head>
+  <body style="font-family: system-ui, sans-serif; width: 320px; padding: 12px;">
+    <h3 style="margin: 0 0 10px;">iliterate</h3>
+
+    <div style="font-size: 12px; opacity: 0.8; margin-bottom: 6px;">Keyword (optional)</div>
+    <input
+      id="kw"
+      placeholder="e.g. photosynthesis"
+      style="width: 100%; padding: 8px; box-sizing: border-box;"
+    />
+
+    <div style="font-size: 12px; opacity: 0.8; margin: 10px 0 6px;">Mode</div>
+    <select id="mode" style="width: 100%; padding: 8px; box-sizing: border-box;">
+      <option value="essay" selected>Essay notes</option>
+      <option value="exam">Exam bullets</option>
+    </select>
+
+    <button
+      id="go"
+      style="width: 100%; margin-top: 10px; padding: 10px; cursor: pointer;"
+    >
+      Extract meaning
+    </button>
+
+    <pre
+      id="out"
+      style="white-space: pre-wrap; margin-top: 10px; font-size: 12px;"
+    ></pre>
+
+    <button
+      id="upgrade"
+      style="width: 100%; margin-top: 10px; padding: 10px; display: none; cursor: pointer;"
+    >
+      Upgrade to iliterate+ (€2/mo)
+    </button>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

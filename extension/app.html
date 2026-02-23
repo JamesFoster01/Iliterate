@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>iliterate</title>
+  </head>
+  <body style="font-family: system-ui, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px;">
+    <h1 style="margin: 0 0 8px;">iliterate</h1>
+    <div style="opacity: 0.8; margin-bottom: 18px;">
+      Highlight text on any page → right-click → <b>Go iliterate</b>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 220px 220px; gap: 10px; align-items: end;">
+      <div>
+        <div style="font-size: 12px; opacity: 0.8; margin-bottom: 6px;">Keyword (optional)</div>
+        <input id="kw" placeholder="e.g. photosynthesis" style="width: 100%; padding: 10px; box-sizing: border-box;" />
+      </div>
+
+      <div>
+        <div style="font-size: 12px; opacity: 0.8; margin-bottom: 6px;">Mode</div>
+        <select id="mode" style="width: 100%; padding: 10px; box-sizing: border-box;">
+          <option value="essay" selected>Essay notes</option>
+          <option value="exam">Exam bullets</option>
+        </select>
+      </div>
+
+      <button id="go" style="padding: 10px; cursor: pointer;">Summarise selection</button>
+    </div>
+
+    <div id="meta" style="margin-top: 14px; font-size: 12px; opacity: 0.75;"></div>
+
+    <div style="display:flex; gap:10px; align-items:center; margin-top:16px;">
+  <button id="copy" style="padding:10px; cursor:pointer;">Copy summary</button>
+  <span id="copystatus" style="font-size:12px; opacity:0.75;"></span>
+</div>
+
+<pre id="out" style="white-space: pre-wrap; margin-top: 10px; padding: 14px; border: 1px solid #ddd; border-radius: 10px; font-size: 13px;"></pre>
+
+    <button id="upgrade" style="margin-top: 12px; padding: 10px; display: none; cursor: pointer;">
+      Upgrade to iliterate+ (€2/mo)
+    </button>
+
+    <script src="app.js"></script>
+  </body>
+</html>

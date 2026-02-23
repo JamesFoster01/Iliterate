@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "iliterate",
+  "version": "0.1.0",
+  "description": "Highlight text, add a keyword, get a focused summary.",
+  "permissions": ["contextMenus", "storage", "tabs"],
+  "host_permissions": ["http://localhost:3000/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html" }
+}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>iliterate — instant study notes</title>
+    <style>
+      :root { --border:#e5e5e5; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; }
+      .wrap { max-width: 980px; margin: 0 auto; padding: 48px 16px; }
+      .card { border:1px solid var(--border); border-radius:16px; padding:18px; }
+      .row { display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px; }
+      h1 { font-size: 44px; margin: 0 0 10px; letter-spacing:-0.5px; }
+      p { margin: 0 0 12px; line-height: 1.5; }
+      .tag { display:inline-block; border:1px solid var(--border); border-radius:999px; padding:6px 10px; font-size: 12px; opacity: 0.85; }
+      .btn { display:inline-block; padding: 12px 14px; border-radius: 12px; border:1px solid #111; text-decoration:none; color:#111; cursor:pointer; font-weight:600; }
+      .btn.primary { background:#111; color:#fff; }
+      .btn.ghost { border-color: var(--border); }
+      .muted { opacity: 0.75; font-size: 13px; }
+      .steps li { margin: 8px 0; }
+      input { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 12px; box-sizing: border-box; }
+      .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .hide { display:none; }
+      @media (max-width: 820px) { .row { grid-template-columns: 1fr; } h1 { font-size: 36px; } }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="tag">Chrome Extension • Essay notes + Exam bullets • Keyword focus</div>
+      <h1>iliterate</h1>
+      <p style="font-size:18px; opacity:.9;">
+        Highlight text → right-click → get clean notes. Fast enough for essays. Sharp enough for exams.
+      </p>
+
+      <div class="row" style="margin-top:18px;">
+        <div class="card">
+          <h2 style="margin:0 0 10px;">How it works</h2>
+          <ol class="steps">
+            <li>Highlight text on any webpage or online reading.</li>
+            <li>Right-click → <b>Go iliterate</b>.</li>
+            <li>Choose <b>Essay</b> or <b>Exam</b> mode, add a keyword if you want.</li>
+          </ol>
+
+          <div id="desktopCtas" class="grid2" style="margin-top:14px;">
+            <a class="btn primary" href="./install.html">Install on desktop</a>
+            <button class="btn ghost" id="copyLinkBtn" type="button">Copy link</button>
+          </div>
+
+          <div id="mobileCtas" class="hide" style="margin-top:14px;">
+            <p class="muted" style="margin-bottom:10px;">
+              You scanned this on mobile — iliterate is a <b>desktop Chrome extension</b>.
+              Send the link to your laptop:
+            </p>
+            <div class="grid2">
+              <button class="btn primary" id="copyLinkBtn2" type="button">Copy link</button>
+              <a class="btn ghost" id="emailLink" href="#">Email myself</a>
+            </div>
+          </div>
+
+          <p class="muted" id="copiedMsg" style="margin-top:12px;"></p>
+        </div>
+
+        <div class="card">
+          <h2 style="margin:0 0 10px;">Why students use it</h2>
+          <ul class="steps" style="list-style: disc; padding-left: 18px;">
+            <li>Essay mode gives expandable notes (no waffle).</li>
+            <li>Exam mode compresses facts for memory.</li>
+            <li>Keyword focus keeps you on-topic.</li>
+            <li>Free limit → upgrade when you actually need it.</li>
+          </ul>
+          <p class="muted" style="margin-top:10px;">
+            Tip: pin the extension so it’s always visible.
+          </p>
+        </div>
+      </div>
+
+      <p class="muted" style="margin-top:20px;">
+        Note: iliterate summarizes what you select. Always check your sources for assignments.
+      </p>
+    </div>
+
+    <script>
+      const landingUrl = window.location.href.replace(/#.*$/, "");
+      const isMobile = /iPhone|Android|iPad|Mobile/i.test(navigator.userAgent);
+
+      const desktop = document.getElementById("desktopCtas");
+      const mobile = document.getElementById("mobileCtas");
+      if (isMobile) { desktop.classList.add("hide"); mobile.classList.remove("hide"); }
+
+      function copyLink(msgElId) {
+        navigator.clipboard.writeText(landingUrl).then(() => {
+          const el = document.getElementById("copiedMsg");
+          if (el) el.textContent = "Copied. Paste this into your laptop browser.";
+        }).catch(() => {
+          const el = document.getElementById("copiedMsg");
+          if (el) el.textContent = "Couldn’t copy automatically — just copy the URL from the address bar.";
+        });
+      }
+
+      document.getElementById("copyLinkBtn")?.addEventListener("click", copyLink);
+      document.getElementById("copyLinkBtn2")?.addEventListener("click", copyLink);
+
+      const email = document.getElementById("emailLink");
+      if (email) {
+        const subject = encodeURIComponent("iliterate link");
+        const body = encodeURIComponent("Here’s the link to install iliterate on laptop:\n\n" + landingUrl);
+        email.href = `mailto:?subject=${subject}&body=${body}`;
+      }
+    </script>
+  </body>
+</html>
