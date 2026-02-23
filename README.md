@@ -1,6 +1,6 @@
 # Iliterate — AI Study Assistant
 
-Iiterate is an AI-powered tool designed to help students summarise learning material and focus on key concepts efficiently.
+Iliterate is an AI-powered tool designed to help students summarise learning material and focus on key concepts efficiently.
 
 ## Features
 - AI text summarisation
